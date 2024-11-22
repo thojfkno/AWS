@@ -1,0 +1,31 @@
+index.html:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bridge Application</title>
+</head>
+<body>
+    <h1>Welcome to the Blood Bridge Application</h1>
+    <p>Connecting donors and recipients.</p>
+</body>
+</html>
+
+server.js (Node.js example):
+
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+
